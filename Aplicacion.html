@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo de Pausa - Autocuidado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6b81);
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 500px;
+            margin-top: 80px;
+        }
+        .btn-custom {
+            background-color: #ff4081;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #e60073;
+            transform: scale(1.05);
+        }
+        .mensaje-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+        .mensaje-img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="animate__animated animate__pulse">💖 ¡Tiempo de Pausa! 💖</h1>
+    <p class="fw-bold">Haz una pausa y cuida de ti mismo.</p>
+    
+    <button class="btn btn-custom w-100" onclick="mostrarSugerencia()">¿Qué necesito hoy?</button>
+    
+    <div id="mensaje-box" class="mensaje-box animate__animated">
+        <h3 id="mensaje-texto"></h3>
+        <img id="mensaje-imagen" class="mensaje-img" src="" alt="Ejercicio">
+    </div>
+</div>
+
+<script>
+    const mensajes = [
+        { texto: "Respira profundo. Inhala en 4 tiempos, exhala en 6. 🧘‍♂️", imagen: "https://source.unsplash.com/400x250/?meditation,breath" },
+        { texto: "Estira tu cuello suavemente de lado a lado. Relaja la tensión. 💆‍♀️", imagen: "https://source.unsplash.com/400x250/?yoga,stretch" },
+        { texto: "Levántate y camina 2 minutos. Activa tu circulación. 🚶‍♂️", imagen: "https://source.unsplash.com/400x250/?walking,exercise" },
+        { texto: "Mueve tus muñecas en círculos. Evita la rigidez. ✋", imagen: "https://source.unsplash.com/400x250/?hand,relax" },
+        { texto: "Sonríe. Libera endorfinas y mejora tu estado de ánimo. 😊", imagen: "https://source.unsplash.com/400x250/?smile,happy" }
+    ];
+
+    function mostrarSugerencia() {
+        const index = Math.floor(Math.random() * mensajes.length);
+        const mensajeSeleccionado = mensajes[index];
+
+        document.getElementById("mensaje-texto").textContent = mensajeSeleccionado.texto;
+        document.getElementById("mensaje-imagen").src = mensajeSeleccionado.imagen;
+
+        const mensajeBox = document.getElementById("mensaje-box");
+        mensajeBox.style.display = "block";
+        mensajeBox.classList.remove("animate__fadeOut");
+        mensajeBox.classList.add("animate__fadeIn");
+    }
+</script>
+
+</body>
+</html>
